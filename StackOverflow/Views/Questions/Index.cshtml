@@ -1,0 +1,21 @@
+﻿@model IEnumerable<StackOverflow.Models.QuestionSummaryViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Questions</h2>
+
+<p>
+    @Html.ActionLink("Ask New Question", "Create")
+</p>
+@foreach (var item in Model) {
+    @Html.Partial("SingleQuestionSummary", item)
+    
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+}

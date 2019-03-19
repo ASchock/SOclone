@@ -1,0 +1,21 @@
+﻿@model StackOverflow.Models.CategorySummaryViewModel
+
+@{
+    /**/
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Questions in @Html.DisplayFor(model => model.Name)</h2>
+
+<div>
+    @foreach (var item in Model.Questions)
+    {
+        @Html.Partial("~/Views/Questions/SingleQuestionSummary.cshtml", item)
+    }
+</div>
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

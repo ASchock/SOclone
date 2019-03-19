@@ -1,0 +1,14 @@
+﻿@model IEnumerable<StackOverflow.Models.QuestionSummaryViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>Learn, Share, Build!</h2>
+    <p class="lead">Each month, over 50 million developers come to Stack Overflow to learn, share their knowledge, and build their careers</p>
+</div>
+
+@foreach (var item in Model)
+{
+    @Html.Partial("~/Views/Questions/SingleQuestionSummary.cshtml", item)
+}

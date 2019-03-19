@@ -1,0 +1,26 @@
+﻿@model StackOverflow.Models.CreateAnswerViewModel
+
+<div class="row">
+    <div class="col-lg-10">
+        @using (Html.BeginForm("Create", "Answers"))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Add Your Answer</h4>
+            <div class="row">
+                <div class="form-group">
+                    @Html.TextAreaFor(model => model.Text, new { @class = "form-control", @style="min-width:100%", @rows = 4 })
+                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.HiddenFor(model => model.QuestionId)
+            <div class="row">
+                <div class="form-group">
+                    <input type="submit" value="Post Your Answer" class="btn btn-info" />
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>

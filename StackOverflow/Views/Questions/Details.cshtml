@@ -1,0 +1,45 @@
+﻿@using StackOverflow.Models
+@model StackOverflow.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>@Html.DisplayFor(model => model.Title)</h2>
+            </div>
+        </div>
+        <div class="row">
+            @*<div class="col-lg-2">
+
+            </div>*@
+            <div class="col-lg-10">
+                @Html.DisplayFor(model => model.Text)
+            </div>
+            <div class="col-lg-2">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Asked @Html.DisplayFor(model => model.Asked)
+                    </li>
+                    <li class="list-group-item">
+                        Viewed @Html.DisplayFor(model => model.ViewCount) @(Model.ViewCount == 1 ? "time" : "times")
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="afterQuestion" />
+@foreach (Answer answer in Model.Answers.OrderByDescending(x => x.Answered))
+{
+    @Html.Partial("~/Views/Answers/SingleAnswer.cshtml", answer)
+}
+@Html.Partial("~/Views/Answers/CreateAnswer.cshtml", new CreateAnswerViewModel() { QuestionId = Model.Id })
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

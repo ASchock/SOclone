@@ -1,0 +1,19 @@
+﻿@model StackOverflow.Models.Answer
+
+<div class="row">
+    @*<div class="col-lg-2">
+
+    </div>*@
+    <div class="col-lg-10">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <span class="text-muted small">Answered at @Html.DisplayFor(model => model.Answered)</span>
+    </div>
+</div>
+<hr class="afterAnswer" />
